@@ -1,0 +1,24 @@
+﻿@model BuyBookViewModel
+@{
+    ViewData["Title"] = "Каталог";
+}
+<body div class="back-image">
+
+<div class="navbar">
+<ul>
+   
+    @foreach (var book in Model.Books)
+    {
+        var path = $"/images/{book.Id}.png";
+        <li>
+            <img src = @path height="250" width="150"><br>
+            <strong>@book.Name</strong> <br> <i> Автор: @book.AuthorName <br> Цена: @book.Price</i> RUB
+            <form asp-controller="BookList" asp-action="BuyBook" method="post">
+                <input type="hidden" name="id" value="@book.Id" />
+                <button type="submit" class="btn btn-primary">Купить</button>
+            </form>
+        </li>
+    }
+</ul>
+</div>
+</body>

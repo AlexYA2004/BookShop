@@ -1,0 +1,7 @@
+﻿<h1>Ошибка авторизации</h1>
+<p>@Model.ErrorMessage</p>
+
+@if (!string.IsNullOrEmpty(Model.RedirectUrl))
+{
+    <a href="@Model.RedirectUrl">Перейти к странице входа</a>
+}
